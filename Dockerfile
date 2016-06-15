@@ -37,16 +37,16 @@ RUN apt-get install --yes \
         npm
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node; \
-    curl -sL https://deb.nodesource.com/setup_5.x | bash -; \
+    curl -sL https://deb.nodesource.com/setup_6.x | bash -; \
     apt-get install -y -q \
-        nodejs; \                                                                                                                                                  
+        nodejs; \
     npm install -g npm
-
 RUN npm install --global \
         foundation-cli \
         grunt \
         grunt-cli \
         gulp \
+        webpack \
         load-grunt-tasks \
         time-grunt
 
