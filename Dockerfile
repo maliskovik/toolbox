@@ -46,6 +46,7 @@ RUN npm install --global \
         grunt \
         grunt-cli \
         gulp \
+        bower \
         webpack \
         load-grunt-tasks \
         time-grunt
