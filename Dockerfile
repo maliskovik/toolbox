@@ -10,7 +10,7 @@
 #
 #################################---FROM---#####################################
 
-FROM ubuntu
+FROM php:alpine
 
 ################################################################################
 
@@ -20,29 +20,17 @@ MAINTAINER Lovrenc Avsenek <a.lovrenc@gmail.com>
 
 ################################################################################
 
-#################################---ENV---######################################
-
-ENV export DEBIAN_FRONTEND noninteractive
-
-################################################################################
 
 ################################---BUILD---#####################################
 
-RUN apt-get update && \
-    apt-get upgrade --yes
+RUN apk update && \
+    apk upgrade --no-cache
 
-RUN apt-get install --yes \
+RUN apk --no-cache add \
         curl \
         git \
-        npm
-
-RUN ln -s /usr/bin/nodejs /usr/bin/node; \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash -; \
-    apt-get install -y -q \
-        nodejs; \
-    npm install -g npm
+        nodejs 
 RUN npm install --global \
-        foundation-cli \
         grunt \
         grunt-cli \
         gulp \
@@ -50,5 +38,8 @@ RUN npm install --global \
         webpack \
         load-grunt-tasks \
         time-grunt
+
+RUN curl -sS https://getcomposer.org/installer | php && \
+    mv composer.phar /usr/local/bin/composer
 
 ################################################################################
