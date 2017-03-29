@@ -35,6 +35,7 @@ RUN apt update; \
       wget \
       build-essential \
       make \
+      unzip \
       npm; \
     ln -s /usr/bin/nodejs /usr/bin/node; \
     curl -sL https://deb.nodesource.com/setup_5.x | bash -; \
