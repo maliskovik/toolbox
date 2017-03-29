@@ -10,7 +10,7 @@
 #
 #################################---FROM---#####################################
 
-FROM ubuntu
+FROM php
 
 ################################################################################
 
@@ -28,27 +28,27 @@ ENV export DEBIAN_FRONTEND noninteractive
 
 ################################---BUILD---#####################################
 
-RUN apt-get update && \
-    apt-get upgrade --yes
-
-RUN apt-get install --yes \
-        curl \
-        git \
-        npm
-
-RUN ln -s /usr/bin/nodejs /usr/bin/node; \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash -; \
-    apt-get install -y -q \
-        nodejs; \
-    npm install -g npm
-RUN npm install --global \
-        foundation-cli \
-        grunt \
-        grunt-cli \
-        gulp \
-        bower \
-        webpack \
-        load-grunt-tasks \
-        time-grunt
+RUN apt update; \
+    apt install -q -y \
+      git \
+      curl \
+      wget \
+      build-essential \
+      make \
+      npm; \
+    ln -s /usr/bin/nodejs /usr/bin/node; \
+    curl -sL https://deb.nodesource.com/setup_5.x | bash -; \
+    apt install nodejs; \
+    npm install -g npm; \
+    npm install -g \
+      bower \
+      grunt \
+      grunt-cli \
+      gulp \
+      load-grunt-tasks \
+      time-grunt; \
+    curl -sS https://getcomposer.org/installer | php && \
+    mv composer.phar /usr/local/bin/composer; \
+    apt-get clean
 
 ################################################################################
