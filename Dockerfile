@@ -50,7 +50,7 @@ RUN apt update; \
       time-grunt; \
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer; \
-    apt autoremove; \
+    apt-get autoremove -y; \
     apt-get clean
 
 ################################################################################
