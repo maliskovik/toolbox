@@ -38,7 +38,7 @@ RUN apt update; \
       unzip \
       npm; \
     ln -s /usr/bin/nodejs /usr/bin/node; \
-    curl -sL https://deb.nodesource.com/setup_5.x | bash -; \
+    curl -sL https://deb.nodesource.com/setup_6.x | bash -; \
     apt install nodejs; \
     npm install -g npm; \
     npm install -g \
