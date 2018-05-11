@@ -49,6 +49,7 @@ RUN npm install --global \
         bower \
         webpack \
         load-grunt-tasks \
-        time-grunt
+        time-grunt \
+        yarn
 
 ################################################################################
