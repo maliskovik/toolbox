@@ -34,7 +34,8 @@ RUN apt-get update && \
 RUN apt-get install --yes \
         curl \
         git \
-        npm
+        npm \
+        dh-autoreconf
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node; \
     curl -sL https://deb.nodesource.com/setup_6.x | bash -; \
