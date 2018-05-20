@@ -35,7 +35,10 @@ RUN apt-get install --yes \
         curl \
         git \
         npm \
-        dh-autoreconf
+        autoconf \
+        dh-autoreconf \
+        automake \
+        nasm
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node; \
     curl -sL https://deb.nodesource.com/setup_6.x | bash -; \
@@ -52,5 +55,6 @@ RUN npm install --global \
         load-grunt-tasks \
         time-grunt \
         yarn
+RUN apt install -y dh-autoreconf automake
 
 ################################################################################
