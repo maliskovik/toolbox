@@ -36,20 +36,11 @@ RUN apt-get update && \
         npm && \
     apt-get clean
 
-RUN ln -s /usr/bin/nodejs /usr/bin/node; \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash -; \
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     apt-get install -y -q \
         nodejs; \
     npm install -g npm
 RUN npm install --global \
-        foundation-cli \
-        grunt \
-        grunt-cli \
-        gulp \
-        bower \
-        webpack \
-        load-grunt-tasks \
-        time-grunt \
-        yarn
-
+        gulpjs/gulp-cli \
+        webpack
 ################################################################################
