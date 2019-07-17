@@ -42,5 +42,6 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     npm install -g npm
 RUN npm install --global \
         gulpjs/gulp-cli \
-        webpack
+        webpack \
+        webpack-cli
 ################################################################################
