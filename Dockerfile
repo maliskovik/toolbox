@@ -40,7 +40,7 @@ tzdata tzdata/Zones/Europe select Ljubljana" > /opt/tzdefault; \
         npm && \
     apt-get clean
 
-RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - ;\
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - ;\
     apt-get install -y -q \
         nodejs; \
     npm install -g npm
