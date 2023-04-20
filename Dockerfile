@@ -10,7 +10,7 @@
 #
 #################################---FROM---#####################################
 
-FROM ubuntu
+FROM ubuntu:22.04
 
 ################################################################################
 
@@ -33,20 +33,21 @@ RUN apt-get update; \
     echo "tzdata tzdata/Areas select Europe \
 tzdata tzdata/Zones/Europe select Ljubljana" > /opt/tzdefault; \
     debconf-set-selections /opt/tzdefault; \
-    apt-get upgrade --yes; \
-    apt-get install --yes \
+    apt upgrade --yes; \
+    apt install --yes \
         curl \
-        git \
-        npm && \
+        gcc \
+        g++ \
+        make \
+        apt-utils \
+        git; \
     apt-get clean
-
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - ;\
-    apt-get install -y -q \
-        nodejs; \
-    npm install -g npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt update; \
+    apt install --yes nodejs;
 RUN npm install --global \
         gulpjs/gulp-cli \
         webpack \
-        webpack-cli
+        webpack-cli;
 
 ################################################################################
